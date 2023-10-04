@@ -210,3 +210,5 @@ shape = SubResource("RectangleShape2D_b177r")
 sprite_frames = SubResource("SpriteFrames_27v84")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
