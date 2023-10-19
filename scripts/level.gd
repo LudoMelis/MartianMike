@@ -17,5 +17,12 @@ func _process(delta):
 
 
 func _on_deathzone_body_entered(body):
-	body.position = $StartPosition.global_position
-	body.velocity = Vector2.ZERO
+	resetPlayer()
+
+
+func _on_traps_touched_player():
+	resetPlayer()
+
+func resetPlayer():
+	player.position = $StartPosition.global_position
+	player.velocity = Vector2.ZERO
