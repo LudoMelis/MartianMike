@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://hy4mck0ijl23" path="res://scenes/spike_ball.tscn" id="5_50vu3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ks6wy"]
-size = Vector2(193, 11)
+size = Vector2(273.5, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm0hb"]
 size = Vector2(1376, 20)
@@ -25,10 +25,11 @@ position = Vector2(93, 46)
 collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
-scale = Vector2(1.5, 0.0781248)
+scale = Vector2(2.73437, 0.0781248)
 texture = ExtResource("3_f8kdl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(-40.25, 0)
 shape = SubResource("RectangleShape2D_ks6wy")
 
 [node name="Deathzone" type="Area2D" parent="."]
@@ -46,10 +47,10 @@ position = Vector2(48, 16)
 [node name="Traps" type="Node2D" parent="."]
 
 [node name="Saw" parent="Traps" instance=ExtResource("4_e4kuh")]
-position = Vector2(169, 23)
+position = Vector2(239, 21)
 
 [node name="SpikeBall" parent="Traps" instance=ExtResource("5_50vu3")]
-position = Vector2(12, 26)
+position = Vector2(-119, 20)
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -61,5 +62,3 @@ position = Vector2(90, 29)
 jumpForce = 500
 
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
-[connection signal="touchedPlayer" from="Traps/Saw" to="." method="_on_traps_touched_player"]
-[connection signal="touchedPlayer" from="Traps/SpikeBall" to="." method="_on_traps_touched_player"]
