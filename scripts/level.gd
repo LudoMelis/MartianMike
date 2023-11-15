@@ -1,11 +1,13 @@
 extends Node2D
 
-@onready var player = $Player
-@onready var startPosition = $StartPosition
+var player = null
+@onready var start = $Start
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player.position = startPosition.global_position
+	player = get_tree().get_first_node_in_group("player")
+	if player != null:
+		player.position = start.getSpawnPos()
 	
 	var traps = get_tree().get_nodes_in_group("traps")
 	for trap in traps:
@@ -28,5 +30,5 @@ func _on_traps_touched_player():
 	resetPlayer()
 
 func resetPlayer():
-	player.position = $StartPosition.global_position
+	player.position = start.getSpawnPos()
 	player.velocity = Vector2.ZERO
