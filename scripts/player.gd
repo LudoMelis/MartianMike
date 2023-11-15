@@ -6,22 +6,27 @@ class_name Player
 @export var jumpForce = 200
 @onready var animatedSprite = $AnimatedSprite2D
 
+var active = true
+
 func _physics_process(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
 		if velocity.y > 500:
 			velocity.y = 500
 	
-	var direction = Input.get_axis("Left", "Right")
-	if direction != 0:
-		animatedSprite.flip_h = direction == -1
+	var direction = 0
+	if active:
+		direction = Input.get_axis("Left", "Right")
+		if direction != 0:
+			animatedSprite.flip_h = direction == -1
 	
-	if Input.is_action_just_pressed("Jump") && is_on_floor():
-		jump(jumpForce)
-	
+		if Input.is_action_just_pressed("Jump") && is_on_floor():
+			jump(jumpForce)
+		
 	velocity.x = direction * speed
-	move_and_slide()
+	
 	updateAnimation(direction)
+	move_and_slide()
 	
 	
 func updateAnimation(direction):

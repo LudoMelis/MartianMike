@@ -82,6 +82,7 @@ Reset={
 2d_physics/layer_2="player"
 2d_physics/layer_3="deathzone"
 2d_physics/layer_4="traps"
+2d_physics/layer_5="exit"
 
 [rendering]
 
