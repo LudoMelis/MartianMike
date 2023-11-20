@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4fbytvv2g6s3"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_umej3"]
+[ext_resource type="FontFile" uid="uid://7tqu3umnatim" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_4h510"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hpcgy"]
+font = ExtResource("2_4h510")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 478.0
+offset_bottom = 272.0
+script = ExtResource("1_umej3")
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_right = 36.0
+offset_bottom = 27.0
+grow_horizontal = 2
+text = "TIME : 0"
+label_settings = SubResource("LabelSettings_hpcgy")
+horizontal_alignment = 1
+vertical_alignment = 1
