@@ -3,7 +3,8 @@ extends Node2D
 @onready var start = $Start
 @onready var exit = $Exit
 @onready var deathzone = $Deathzone
-@onready var ui = preload("res://scenes/ui.tscn")
+@onready var uiScene = preload("res://scenes/ui.tscn")
+@onready var playerScene = preload("res://scenes/player.tscn")
 
 @export var nextLevel: PackedScene = null
 @export var levelTime = 5
@@ -15,15 +16,14 @@ var win = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player = get_tree().get_first_node_in_group("player")
-	if player != null:
-		player.position = start.getSpawnPos()
+
 	
 	var traps = get_tree().get_nodes_in_group("traps")
 	for trap in traps:
 		trap.touchedPlayer.connect(_on_traps_touched_player)
 	exit.body_entered.connect(_on_exit_body_entered)
 	deathzone.body_entered.connect(_on_deathzone_body_entered)
+	setPlayer()
 	setTimer()
 	setUi()
 
@@ -35,6 +35,13 @@ func _process(delta):
 	elif Input.is_action_just_pressed("Reset"):
 		get_tree().reload_current_scene()
 		
+func setPlayer():
+	player = playerScene.instantiate()
+	add_child(player)
+#	player = get_tree().get_first_node_in_group("player")
+	if player != null:
+		player.position = start.getSpawnPos()
+
 func setTimer():
 	timeLeft = levelTime
 	timer = Timer.new()
@@ -43,10 +50,9 @@ func setTimer():
 	timer.timeout.connect(_on_level_timer_out)
 	add_child(timer)
 	timer.start()
-	
 
 func setUi():
-	var uiInstance = ui.instantiate()
+	var uiInstance = uiScene.instantiate()
 	add_child(uiInstance)
 	hud = uiInstance.get_node("HUD")
 	hud.setTimerLabel(timeLeft)

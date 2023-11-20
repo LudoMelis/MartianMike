@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://6t1dixkx1agj"]
+[gd_scene load_steps=11 format=3 uid="uid://6t1dixkx1agj"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_urva7"]
-[ext_resource type="PackedScene" uid="uid://doppcgho6lw15" path="res://scenes/player.tscn" id="1_yi0ne"]
 [ext_resource type="PackedScene" uid="uid://blfek3eyqdwpv" path="res://scenes/level_3.tscn" id="2_bx5md"]
 [ext_resource type="PackedScene" uid="uid://o28wcs7hb2x1" path="res://scenes/bg.tscn" id="3_36iph"]
 [ext_resource type="Texture2D" uid="uid://t1pi0xued25i" path="res://assets/textures/bg/Brown.png" id="4_k10va"]
@@ -15,8 +14,6 @@
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_urva7")
 nextLevel = ExtResource("2_bx5md")
-
-[node name="Player" parent="." instance=ExtResource("1_yi0ne")]
 
 [node name="BG" parent="." instance=ExtResource("3_36iph")]
 bgTexture = ExtResource("4_k10va")
