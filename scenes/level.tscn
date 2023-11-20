@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://e87gvj64vyao"]
+[gd_scene load_steps=10 format=3 uid="uid://e87gvj64vyao"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_o8pxf"]
 [ext_resource type="PackedScene" uid="uid://6t1dixkx1agj" path="res://scenes/level_2.tscn" id="2_fgswn"]
 [ext_resource type="PackedScene" uid="uid://brox1bhcr3l70" path="res://scenes/saw.tscn" id="4_e4kuh"]
 [ext_resource type="PackedScene" uid="uid://b44haq3v8it7l" path="res://scenes/jump_pad.tscn" id="4_enuxp"]
-[ext_resource type="PackedScene" uid="uid://citrr1xoqtn2n" path="res://scenes/deathzone.tscn" id="4_f4lgp"]
 [ext_resource type="PackedScene" uid="uid://hy4mck0ijl23" path="res://scenes/spike_ball.tscn" id="5_50vu3"]
 [ext_resource type="PackedScene" uid="uid://di81vrivh1dpk" path="res://scenes/tile_map.tscn" id="7_fnqab"]
 [ext_resource type="PackedScene" uid="uid://o28wcs7hb2x1" path="res://scenes/bg.tscn" id="8_6xbn4"]
@@ -14,8 +13,6 @@
 [node name="Level" type="Node2D"]
 script = ExtResource("1_o8pxf")
 nextLevel = ExtResource("2_fgswn")
-
-[node name="Deathzone" parent="." instance=ExtResource("4_f4lgp")]
 
 [node name="Traps" type="Node2D" parent="."]
 

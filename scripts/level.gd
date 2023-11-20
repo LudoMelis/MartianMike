@@ -2,13 +2,14 @@ extends Node2D
 
 @onready var start = $Start
 @onready var exit = $Exit
-@onready var deathzone = $Deathzone
 @onready var uiScene = preload("res://scenes/ui.tscn")
 @onready var playerScene = preload("res://scenes/player.tscn")
+@onready var deathzoneScene = preload("res://scenes/deathzone.tscn")
 
 @export var nextLevel: PackedScene = null
 @export var levelTime = 5
 var player = null
+var deathzone = null
 var timer = null
 var hud = null
 var timeLeft
@@ -22,8 +23,8 @@ func _ready():
 	for trap in traps:
 		trap.touchedPlayer.connect(_on_traps_touched_player)
 	exit.body_entered.connect(_on_exit_body_entered)
-	deathzone.body_entered.connect(_on_deathzone_body_entered)
 	setPlayer()
+	setDeathzone()
 	setTimer()
 	setUi()
 
@@ -41,6 +42,11 @@ func setPlayer():
 #	player = get_tree().get_first_node_in_group("player")
 	if player != null:
 		player.position = start.getSpawnPos()
+		
+func setDeathzone():
+	deathzone = deathzoneScene.instantiate()
+	add_child(deathzone)
+	deathzone.body_entered.connect(_on_deathzone_body_entered)
 
 func setTimer():
 	timeLeft = levelTime

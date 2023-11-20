@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://blfek3eyqdwpv"]
+[gd_scene load_steps=7 format=3 uid="uid://blfek3eyqdwpv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_kje5o"]
 [ext_resource type="PackedScene" uid="uid://o28wcs7hb2x1" path="res://scenes/bg.tscn" id="3_003b6"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://di81vrivh1dpk" path="res://scenes/tile_map.tscn" id="5_k4e7l"]
 [ext_resource type="PackedScene" uid="uid://bj7bkxfo6ijv8" path="res://scenes/start.tscn" id="6_u6nx1"]
 [ext_resource type="PackedScene" uid="uid://cox60iwlwpwmg" path="res://scenes/exit.tscn" id="7_0vtjy"]
-[ext_resource type="PackedScene" uid="uid://citrr1xoqtn2n" path="res://scenes/deathzone.tscn" id="8_0o1tn"]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_kje5o")
@@ -22,5 +21,3 @@ position = Vector2(71, 32)
 
 [node name="Exit" parent="." instance=ExtResource("7_0vtjy")]
 position = Vector2(516, 17)
-
-[node name="Deathzone" parent="." instance=ExtResource("8_0o1tn")]
